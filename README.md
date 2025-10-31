@@ -38,7 +38,7 @@ nvidia-smi
 
 ```bash
 # Clone the repository
-git clone https://github.com/yourusername/gpt2-medium-lora-training.git
+git clone https://github.com/Shivadzn/gpt2-medium-lora-training.git
 cd gpt2-medium-lora-training
 
 # Install dependencies
@@ -245,7 +245,7 @@ Example: 16 × 4 × 2 = 128
 - **Model Export**: Save LoRA adapters
 - **Checkpointing**: Best model preservation
 - **Logging**: W&B integration for metrics
-
+  
 ---
 
 ## 🧪 Evaluation & Generation
@@ -449,9 +449,8 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## 📧 Contact
 
-**Project Maintainer**: Your Name  
-**Email**: your.email@example.com  
-**GitHub**: [@yourusername](https://github.com/yourusername)
+**Project Maintainer**: SHIVA GUPTA  
+**Linkedin**: https://www.linkedin.com/in/shiva-gupta-a70190234
 
 ---
 
