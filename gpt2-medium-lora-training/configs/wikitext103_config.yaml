@@ -1,0 +1,23 @@
+# Configuration for WikiText-103 dataset
+_base_: default_config.yaml
+
+data:
+  dataset_name: "wikitext"
+  dataset_config_name: "wikitext-103-raw-v1"
+  max_seq_length: 512  # Longer sequence length for WikiText-103
+  validation_split_percentage: 1  # Smaller validation split due to larger dataset
+
+training:
+  num_train_epochs: 3  # Fewer epochs for larger dataset
+  per_device_train_batch_size: 2  # Smaller batch size due to longer sequences
+  per_device_eval_batch_size: 2
+  learning_rate: 2.0e-5  # Slightly lower learning rate
+  warmup_ratio: 0.05  # Shorter warmup
+  gradient_accumulation_steps: 8  # More gradient accumulation steps
+
+model:
+  model_name_or_path: "gpt2-medium"
+  use_lora: true
+  lora_rank: 16  # Slightly higher rank for larger dataset
+  lora_alpha: 32
+  lora_dropout: 0.1

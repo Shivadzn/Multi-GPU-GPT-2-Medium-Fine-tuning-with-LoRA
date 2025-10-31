@@ -1,0 +1,45 @@
+from setuptools import setup, find_packages
+
+setup(
+    name="gpt2-lora-training",
+    version="0.1.0",
+    packages=find_packages(where="src"),
+    package_dir={"": "src"},
+    install_requires=[
+        "torch>=1.10.0",
+        "transformers>=4.20.0",
+        "datasets>=2.0.0",
+        "peft>=0.3.0",
+        "accelerate>=0.12.0",
+        "tqdm>=4.64.0",
+        "numpy>=1.21.0",
+        "pandas>=1.3.0",
+        "pyyaml>=6.0",
+        "tensorboard>=2.9.0",
+        "scikit-learn>=1.0.0",
+    ],
+    extras_require={
+        "dev": [
+            "pytest>=7.0.0",
+            "pytest-cov>=3.0.0",
+            "black>=22.0.0",
+            "isort>=5.10.0",
+            "mypy>=0.950",
+            "flake8>=4.0.0",
+        ],
+    },
+    python_requires=">=3.8",
+    description="Fine-tune GPT-2 models using LoRA (Low-Rank Adaptation)",
+    long_description=open("README.md", "r", encoding="utf-8").read(),
+    long_description_content_type="text/markdown",
+    author="Your Name",
+    author_email="your.email@example.com",
+    url="https://github.com/yourusername/gpt2-lora-training",
+    classifiers=[
+        "Programming Language :: Python :: 3",
+        "License :: OSI Approved :: MIT License",
+        "Operating System :: OS Independent",
+        "Intended Audience :: Science/Research",
+        "Topic :: Scientific/Engineering :: Artificial Intelligence",
+    ],
+)

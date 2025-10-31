@@ -1,0 +1,61 @@
+# Model configuration
+model:
+  model_name_or_path: "gpt2-medium"
+  use_lora: true
+  lora_rank: 8
+  lora_alpha: 32
+  lora_dropout: 0.1
+  target_modules: ["c_attn", "c_proj"]
+  trainable_layers: ["attn"]  # Which layers to fine-tune
+
+# Data configuration
+data:
+  dataset_name: "wikitext"
+  dataset_config_name: "wikitext-2-raw-v1"
+  max_seq_length: 256
+  preprocessing_num_workers: 4
+  overwrite_cache: false
+  validation_split_percentage: 5
+
+# Training configuration
+training:
+  output_dir: "../outputs"
+  num_train_epochs: 3
+  per_device_train_batch_size: 4
+  per_device_eval_batch_size: 4
+  gradient_accumulation_steps: 4
+  learning_rate: 5.0e-5
+  weight_decay: 0.01
+  warmup_ratio: 0.1
+  logging_steps: 100
+  eval_steps: 500
+  save_steps: 1000
+  save_total_limit: 3
+  load_best_model_at_end: true
+  metric_for_best_model: "eval_loss"
+  greater_is_better: false
+  fp16: true
+  gradient_checkpointing: true
+
+# Generation configuration
+generation:
+  max_length: 100
+  num_beams: 5
+  temperature: 0.9
+  top_k: 50
+  top_p: 0.9
+  repetition_penalty: 1.2
+  do_sample: true
+  num_return_sequences: 3
+
+# Logging and tracking
+logging:
+  report_to: "tensorboard"
+  logging_dir: "../outputs/logs"
+  run_name: "gpt2-lora-run"
+
+# HuggingFace Hub (optional)
+hub:
+  push_to_hub: false
+  hub_model_id: "your-username/gpt2-lora-wikitext2"
+  hub_token: "${HF_API_TOKEN}"  # From environment variable
